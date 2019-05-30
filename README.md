@@ -27,7 +27,6 @@ npm install -g serverless
 ``` bash
 serverless create --template aws-python --path serverless-textract
 cd serverless-textract
-pip install -r requirements.txt -t .
 ```
 
 Replace your **handler.py** with the file [handler.py](handler.py).
