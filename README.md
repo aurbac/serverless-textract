@@ -1,8 +1,8 @@
-# Create a Serverless project
+# Create a Serverless project to use Textract
 
 Work inside your AWS Cloud9 or local environment.
 
-![serverless-s3-dynamodb](images/serverless-s3-dynamodb.png)
+![serverless-s3-dynamodb](images/serverless-textract.png)
 
 ## Configure your environment
 
@@ -32,12 +32,12 @@ pip install -r requirements.txt -t .
 
 Replace your **handler.py** with the file [handler.py](handler.py).
 
-Replace your **serverless.yml** with the file [serverless.yml](serverless.yml), change the **bucketName** with your own alias name.
+Replace your **serverless.yml** with the file [serverless.yml](serverless.yml), change the property **bucketNameDocs** with your own alias name for the bucket.
 
 Install the last version for Boto 3 using the **requirements.txt** file.
 
 ``` bash
-wget 
+wget https://raw.githubusercontent.com/aurbac/serverless-textract/master/requirements.txt
 pip install -r requirements.txt -t .
 ```
 
@@ -49,4 +49,4 @@ serverless deploy
 
 ## Testing
 
-Upload **png**, **jpg** or **pdf** documents to your S3 bucket created, few seconds later a json file with the result will be created.
+Upload a **png**, **jpg** or **pdf** document to your S3 bucket created, few seconds later a json file with the result will be created.
