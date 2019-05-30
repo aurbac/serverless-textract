@@ -1,0 +1,69 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: serverless-textract # NOTE: update this with your service name
+
+custom:
+  bucketNameDocs: aurbac-docs-${self:provider.stage}
+  tableName: docs_table_${self:provider.stage}
+
+provider:
+  name: aws
+  runtime: python2.7
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+      Resource: "arn:aws:dynamodb:us-east-1:*:*"
+    - Effect: Allow
+      Action:
+        - textract:*
+      Resource: "*"
+    - Effect: Allow
+      Action:
+        - s3:*
+      Resource: "*"
+
+
+functions:
+  s3ObjectCreated:
+    handler: handler.hello
+    timeout: 60
+    environment: 
+      tableName: ${self:custom.tableName}
+      bucketName: ${self:custom.bucketNameDocs}
+    events:
+      - s3:
+          bucket: ${self:custom.bucketNameDocs}
+          event: s3:ObjectCreated:*
+
+# you can add CloudFormation resource templates here
+resources:
+  Resources:
+    MyDynamoDBTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+        - AttributeName: key_object
+          AttributeType: S
+        - AttributeName: bucket_name
+          AttributeType: S
+        KeySchema:
+        - AttributeName: key_object
+          KeyType: HASH
+        - AttributeName: bucket_name
+          KeyType: RANGE
+        TableName: ${self:custom.tableName}
+        ProvisionedThroughput:
+          ReadCapacityUnits: '5'
+          WriteCapacityUnits: '5'
