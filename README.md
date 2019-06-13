@@ -16,6 +16,12 @@ aws configure
 
 ## Install dependencies
 
+Update Node.js to the minimal version of 8.
+
+``` bash
+nvm i v8
+```
+
 Install Serverless CLI tool https://serverless.com/framework/docs/providers/aws/guide/installation/
 
 ``` bash
@@ -32,13 +38,6 @@ cd serverless-textract
 Replace your **handler.py** with the file [handler.py](handler.py).
 
 Replace your **serverless.yml** with the file [serverless.yml](serverless.yml), change the property **bucketNameDocs** with your own alias name for the bucket.
-
-Install the last version for Boto 3 using the **requirements.txt** file.
-
-``` bash
-wget https://raw.githubusercontent.com/aurbac/serverless-textract/master/requirements.txt
-pip install -r requirements.txt -t .
-```
 
 ## Deploy your Serverless project
 
