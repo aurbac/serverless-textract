@@ -37,7 +37,7 @@ cd serverless-textract
 
 Replace your **handler.py** with the file [handler.py](handler.py).
 
-Replace your **serverless.yml** with the file [serverless.yml](serverless.yml), change the property **bucketNameDocs** with your own alias name for the bucket.
+Replace your **serverless.yml** with the file [serverless.yml](serverless.yml), in line **17** is specified the bucket name to be created, change the value for **bucketNameDocs** with a unique name (you can use your name or nickname).
 
 ## Deploy your Serverless project
 
@@ -47,4 +47,4 @@ serverless deploy
 
 ## Testing
 
-Upload a **png**, **jpg** or **pdf** document to your S3 bucket created, few seconds later a json file with the result will be created.
+Go to the Amazon S3 Console https://s3.console.aws.amazon.com/, go inside your bucket created and upload a **png**, **jpg** or **pdf** document, few seconds later a json file with the result will be created.
