@@ -37,9 +37,9 @@ echo boto3==1.9.157 > requirements.txt
 pip install -r requirements.txt -t .
 ```
 
-Replace your **handler.py** with the file [handler.py](handler.py).
+Replace your **handler.py** with the content file of [handler.py](handler.py).
 
-Replace your **serverless.yml** with the file [serverless.yml](serverless.yml), in line **17** is specified the bucket name to be created, change the value for **bucketName** with a unique name (you can use your name or nickname).
+Replace your **serverless.yml** with the content file of [serverless.yml](serverless.yml), in line **17** is specified the bucket name to be created, change the value for **bucketName** with a unique name (you can use your name or nickname).
 
 ## Deploy your Serverless project
 
@@ -50,3 +50,5 @@ serverless deploy
 ## Testing
 
 Go to the Amazon S3 Console https://s3.console.aws.amazon.com/, go inside your bucket created and upload a **png**, **jpg** or **pdf** document, few seconds later a json file with the result will be created.
+
+Sample images: [Book.zip](files/Book.zip)
