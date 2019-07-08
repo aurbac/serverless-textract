@@ -33,11 +33,13 @@ npm install -g serverless
 ``` bash
 serverless create --template aws-python --path serverless-textract
 cd serverless-textract
+echo boto3==1.9.157 > requirements.txt
+pip install -r requirements.txt -t .
 ```
 
 Replace your **handler.py** with the file [handler.py](handler.py).
 
-Replace your **serverless.yml** with the file [serverless.yml](serverless.yml), in line **17** is specified the bucket name to be created, change the value for **bucketNameDocs** with a unique name (you can use your name or nickname).
+Replace your **serverless.yml** with the file [serverless.yml](serverless.yml), in line **17** is specified the bucket name to be created, change the value for **bucketName** with a unique name (you can use your name or nickname).
 
 ## Deploy your Serverless project
 
