@@ -6,13 +6,16 @@ Work inside your AWS Cloud9 or local environment.
 
 ## Configure your environment
 
-* In AWS Cloud9 configure the AWS CLI using the local credentials, and set the region name to **`us-east-1`** and the output format to **`json`**. 
-
 ``` bash
 aws configure
 ```
 
-* In your local environment [configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration).
+- In AWS Cloud9 configure the AWS CLI as follows. 
+    - AWS Access Key ID: **(Use default)**
+    - AWS Secret Access Key: **(Use default)**
+    - Default region name [us-east-1]: **us-east-1**
+    - Default output format [json]: **json**
+- In your local environment [configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration) with your own IAM credentials.
 
 ## Install dependencies
 
@@ -49,6 +52,6 @@ serverless deploy
 
 ## Testing
 
-Go to the Amazon S3 Console https://s3.console.aws.amazon.com/, go inside your bucket created and upload a **png**, **jpg** or **pdf** document, few seconds later a json file with the result will be created.
+Go to the Amazon S3 Console https://s3.console.aws.amazon.com/, go inside your bucket created and upload a **png** or **jpg** document, few seconds later a json file with the result will be created.
 
 Sample images: [book.zip](files/book.zip)

@@ -28,7 +28,7 @@ def hello(event, context):
             for record in body['Records']:
                 key_object = record["s3"]["object"]["key"]
                 bucket_name = record["s3"]["bucket"]["name"]
-                if key_object[-3:]=="jpg" or key_object[-3:]=="png" or key_object[-3:]=="pdf":
+                if key_object[-3:]=="jpg" or key_object[-3:]=="png":
                     print("Document")
                     response = textract_client.analyze_document(Document={'S3Object': {'Bucket': bucket_name,'Name': key_object}}, FeatureTypes=['TABLES','FORMS'])
                     print(json.dumps(response))
